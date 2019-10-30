@@ -57,6 +57,14 @@ public class ChapterSevenActivity extends AppCompatActivity implements View.OnCl
         );
         ta.setDuration(2000);
 
+        //动画集合
+        AnimationSet as = new AnimationSet(true);
+        as.setDuration(2000);
+        as.addAnimation(aa);
+        as.addAnimation(ra);
+        as.addAnimation(sa);
+        as.addAnimation(ta);
+
         switch (id) {
             case R.id.btn_alpha://渐变
                 sevenBinding.ivDemo.startAnimation(aa);
@@ -70,13 +78,7 @@ public class ChapterSevenActivity extends AppCompatActivity implements View.OnCl
             case R.id.btn_translate://平移
                 sevenBinding.ivDemo.startAnimation(ta);
                 break;
-            case R.id.btn_all:
-                AnimationSet as = new AnimationSet(true);
-                as.setDuration(2000);
-                as.addAnimation(aa);
-                as.addAnimation(ra);
-                as.addAnimation(sa);
-                as.addAnimation(ta);
+            case R.id.btn_all://动画集合
                 sevenBinding.ivDemo.startAnimation(as);
                 break;
         }
