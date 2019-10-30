@@ -15,12 +15,24 @@ import java.util.List;
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     private Context mContext;
     private List<String> mChapterList;
+    private ClickListener clickListener;
+
+    public ClickListener getClickListener() {
+        return clickListener;
+    }
+
+    public void setClickListener(ClickListener clickListener) {
+        this.clickListener = clickListener;
+    }
 
     public MyAdapter(Context context, List<String> list) {
         this.mContext = context;
         this.mChapterList = list;
     }
 
+    interface ClickListener {
+        void onItemClick(int position);
+    }
 
     @NonNull
     @Override
@@ -30,8 +42,16 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         holder.mTvChapter.setText(mChapterList.get(position));
+        holder.mTvChapter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (clickListener != null) {
+                    clickListener.onItemClick(position);
+                }
+            }
+        });
     }
 
 

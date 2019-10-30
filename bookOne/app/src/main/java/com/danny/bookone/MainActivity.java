@@ -41,8 +41,19 @@ public class MainActivity extends AppCompatActivity {
         List<String> stringList = new ArrayList<>(Arrays.asList(chapters));
         MyAdapter adapter = new MyAdapter(this, stringList);
         mainBinding.rcvChapter.setLayoutManager(new LinearLayoutManager(this));
-        mainBinding.rcvChapter.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
+        mainBinding.rcvChapter.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
         mainBinding.rcvChapter.setAdapter(adapter);
+        adapter.setClickListener(new MyAdapter.ClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                switch (position) {
+                    case 6:
+                        startActivity(ChapterSevenActivity.createIntent(MainActivity.this));
+                        break;
+                }
+            }
+        });
+
     }
 
 }
