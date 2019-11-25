@@ -53,7 +53,7 @@ public class HighLightActivity extends AppCompatActivity {
             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
                 switch (position) {
                     case 2:
-                        startActivity(ChapterSevenActivity.createIntent(HighLightActivity.this));
+                        startActivity(ViewScrollActivity.createIntent(HighLightActivity.this));
                         break;
                 }
             }
