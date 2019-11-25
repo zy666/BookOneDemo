@@ -66,12 +66,20 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:weightSum="4">
+
                 <Button
                     android:id="@+id/btn_all"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="动画合集" />
+
+                <Button
+                    android:id="@+id/btn_obj"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="objectAnimator" />
 
 
             </LinearLayout>

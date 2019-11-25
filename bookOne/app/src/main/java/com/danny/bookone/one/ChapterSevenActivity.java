@@ -1,19 +1,20 @@
-package com.danny.bookone;
+package com.danny.bookone.one;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
 
+import com.danny.bookone.R;
 import com.danny.bookone.databinding.ActivityChapterSevenBinding;
 
 public class ChapterSevenActivity extends AppCompatActivity implements View.OnClickListener {
@@ -29,6 +30,8 @@ public class ChapterSevenActivity extends AppCompatActivity implements View.OnCl
         sevenBinding.btnScale.setOnClickListener(this);
         sevenBinding.btnTranslate.setOnClickListener(this);
         sevenBinding.btnAll.setOnClickListener(this);
+        sevenBinding.btnObj.setOnClickListener(this);
+        sevenBinding.btnObj.setAllCaps(false);
     }
 
     public static Intent createIntent(Context context) {
@@ -80,6 +83,11 @@ public class ChapterSevenActivity extends AppCompatActivity implements View.OnCl
                 break;
             case R.id.btn_all://动画集合
                 sevenBinding.ivDemo.startAnimation(as);
+                break;
+            case R.id.btn_obj://动画集合
+                ObjectAnimator oa = ObjectAnimator.ofFloat(sevenBinding.ivDemo, "translationY", 400);
+                oa.setDuration(2000);
+                oa.start();
                 break;
         }
     }
