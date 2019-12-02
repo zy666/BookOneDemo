@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Android群英传</string>
+    <string name="oa">ObjectAnimator</string>
 </resources>

@@ -5,6 +5,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,14 +14,17 @@ import android.view.View;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.danny.bookone.Base.StringAdapter;
 import com.danny.bookone.R;
-import com.danny.bookone.databinding.ActivityFistCodeBinding;
+import com.danny.bookone.databinding.ActivityHeroBinding;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class FistCodeActivity extends AppCompatActivity {
-    private ActivityFistCodeBinding fistCodeBinding;
+/**
+ * 《android群英传》
+ */
+public class HeroActivity extends AppCompatActivity {
+    private ActivityHeroBinding heroBinding;
     private String[] chapters = {
             "第一章",
             "第二章",
@@ -40,19 +44,19 @@ public class FistCodeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        fistCodeBinding = DataBindingUtil.setContentView(this, R.layout.activity_fist_code);
+        heroBinding = DataBindingUtil.setContentView(this, R.layout.activity_hero);
 
         List<String> stringList = new ArrayList<>(Arrays.asList(chapters));
         StringAdapter adapter = new StringAdapter(stringList);
-        fistCodeBinding.rcvData.setLayoutManager(new LinearLayoutManager(this));
-        fistCodeBinding.rcvData.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
-        fistCodeBinding.rcvData.setAdapter(adapter);
+        heroBinding.rcvData.setLayoutManager(new LinearLayoutManager(this));
+        heroBinding.rcvData.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
+        heroBinding.rcvData.setAdapter(adapter);
         adapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
             @Override
             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
                 switch (position) {
                     case 6:
-                        startActivity(ChapterSevenActivity.createIntent(FistCodeActivity.this));
+                        startActivity(ChapterSevenActivity.createIntent(HeroActivity.this));
                         break;
                 }
             }
@@ -60,7 +64,7 @@ public class FistCodeActivity extends AppCompatActivity {
 
     }
     public static Intent createIntent(Context context) {
-        return new Intent(context, FistCodeActivity.class);
+        return new Intent(context, HeroActivity.class);
     }
 
 }

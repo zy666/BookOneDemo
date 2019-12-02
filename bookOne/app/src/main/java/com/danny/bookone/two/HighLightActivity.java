@@ -12,7 +12,6 @@ import android.view.View;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.danny.bookone.Base.StringAdapter;
-import com.danny.bookone.one.ChapterSevenActivity;
 import com.danny.bookone.R;
 import com.danny.bookone.databinding.ActivityHighLightBinding;
 
@@ -20,10 +19,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * 《android进阶之光》
+ */
 public class HighLightActivity extends AppCompatActivity {
     private ActivityHighLightBinding highLightBinding;
     private String[] chapters = {
-            "第一章",
+            "第一章--Android新特性",
             "第二章",
             "第三章--view体系与自定义view",
             "第四章",
@@ -52,6 +54,9 @@ public class HighLightActivity extends AppCompatActivity {
             @Override
             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
                 switch (position) {
+                    case 0:
+                        startActivity(NewCharacterActivity.createIntent(HighLightActivity.this));
+                        break;
                     case 2:
                         startActivity(ViewScrollActivity.createIntent(HighLightActivity.this));
                         break;

@@ -30,8 +30,8 @@ public class ChapterSevenActivity extends AppCompatActivity implements View.OnCl
         sevenBinding.btnScale.setOnClickListener(this);
         sevenBinding.btnTranslate.setOnClickListener(this);
         sevenBinding.btnAll.setOnClickListener(this);
-        sevenBinding.btnObj.setOnClickListener(this);
-        sevenBinding.btnObj.setAllCaps(false);
+        sevenBinding.btnObject.setOnClickListener(this);
+        sevenBinding.btnObject.setAllCaps(false);
     }
 
     public static Intent createIntent(Context context) {
@@ -44,7 +44,6 @@ public class ChapterSevenActivity extends AppCompatActivity implements View.OnCl
         //渐变
         AlphaAnimation aa = new AlphaAnimation(0, 1);
         aa.setDuration(1000);
-
         //旋转
         RotateAnimation ra = new RotateAnimation(0, 360,
                 RotateAnimation.RELATIVE_TO_SELF, 1f,
@@ -59,15 +58,6 @@ public class ChapterSevenActivity extends AppCompatActivity implements View.OnCl
                 TranslateAnimation.RELATIVE_TO_SELF, 0f, TranslateAnimation.RELATIVE_TO_SELF, 1f
         );
         ta.setDuration(2000);
-
-        //动画集合
-        AnimationSet as = new AnimationSet(true);
-        as.setDuration(2000);
-        as.addAnimation(aa);
-        as.addAnimation(ra);
-        as.addAnimation(sa);
-        as.addAnimation(ta);
-
         switch (id) {
             case R.id.btn_alpha://渐变
                 sevenBinding.ivDemo.startAnimation(aa);
@@ -82,11 +72,17 @@ public class ChapterSevenActivity extends AppCompatActivity implements View.OnCl
                 sevenBinding.ivDemo.startAnimation(ta);
                 break;
             case R.id.btn_all://动画集合
+                AnimationSet as = new AnimationSet(true);
+                as.setDuration(2000);
+                as.addAnimation(aa);
+                as.addAnimation(ra);
+                as.addAnimation(sa);
+                as.addAnimation(ta);
                 sevenBinding.ivDemo.startAnimation(as);
                 break;
-            case R.id.btn_obj://动画集合
-                ObjectAnimator oa = ObjectAnimator.ofFloat(sevenBinding.ivDemo, "translationY", 400);
-                oa.setDuration(2000);
+            case R.id.btn_object://属性动画ObjectAnimator
+                ObjectAnimator oa = ObjectAnimator.ofFloat(sevenBinding.ivDemo, "translationX", 400);
+                oa.setDuration(1000);
                 oa.start();
                 break;
         }

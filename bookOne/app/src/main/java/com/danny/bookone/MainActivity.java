@@ -11,7 +11,7 @@ import android.view.View;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.danny.bookone.Base.StringAdapter;
 import com.danny.bookone.databinding.ActivityMainBinding;
-import com.danny.bookone.one.FistCodeActivity;
+import com.danny.bookone.one.HeroActivity;
 import com.danny.bookone.two.HighLightActivity;
 
 import java.util.ArrayList;
@@ -21,8 +21,9 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding mainBinding;
     private String[] chapters = {
-            "第一行代码",
+            "Android群英传",
             "Android进阶之光",
+            "AAC系列",
     };
 
 //
@@ -42,9 +43,12 @@ public class MainActivity extends AppCompatActivity {
             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
                 switch (position) {
                     case 0:
-                        startActivity(FistCodeActivity.createIntent(MainActivity.this));
+                        startActivity(HeroActivity.createIntent(MainActivity.this));
                         break;
                     case 1:
+                        startActivity(HighLightActivity.createIntent(MainActivity.this));
+                        break;
+                    case 2:
                         startActivity(HighLightActivity.createIntent(MainActivity.this));
                         break;
                 }
