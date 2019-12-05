@@ -10,6 +10,7 @@ import android.view.View;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.danny.bookone.Base.StringAdapter;
+import com.danny.bookone.aac.AacActivity;
 import com.danny.bookone.databinding.ActivityMainBinding;
 import com.danny.bookone.one.HeroActivity;
 import com.danny.bookone.two.HighLightActivity;
@@ -49,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(HighLightActivity.createIntent(MainActivity.this));
                         break;
                     case 2:
-                        startActivity(HighLightActivity.createIntent(MainActivity.this));
+                        startActivity(AacActivity.createIntent(MainActivity.this));
                         break;
                 }
             }
