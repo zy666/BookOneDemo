@@ -1,4 +1,18 @@
 <resources>
     <string name="app_name">Android群英传</string>
     <string name="oa">ObjectAnimator</string>
+    <string name="one_title">第一章-Android体系与系统架构</string>
+    <string name="tip1">1.android体系架构</string>
+    <string name="tip2">2.Android App组件架构</string>
+    <string name="tv_context">Linux层："\n""\n"Android最底层核心的部分Dalvik与ART：Dalvik包含一整套Android运行环境虚拟机，
+        每个app都会分配dalvik虚拟机来保证相互之间不受干扰，并保持独立。特点是运行时编译。5.x之后，ART模式取代Dalvik，特点是安装时就进行编译，以后运行就不用编译了。"\n"
+        Framwork"\n""\n"
+        Standard libraries:android的标准库"\n""\n"
+        Aplication:包含NDK开发，和Java开发。</string>
+    <string name="tv_context1">
+        ·四大组件Activity,Service,broadcast,contentProvider通过Intent，通信，传递信息，交换数据。"\n""\n"
+        ·应用运行上下文对象Context,在程序中，我们可以理解为当前对象在程序中所处的一个环境，一个与系统交互的过程。Activity,service,Application,都是继承context."\n""\n"
+        ·系统交互的过程。Activity,service,Application,都是继承context.
+    </string>
+
 </resources>

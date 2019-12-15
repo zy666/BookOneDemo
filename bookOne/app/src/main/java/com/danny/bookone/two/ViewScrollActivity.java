@@ -34,6 +34,7 @@ public class ViewScrollActivity extends AppCompatActivity {
                 .append("5.使用Scroller类" + "\n")
                 .append("6.使用scrollBy或者scrollTo" + "\n");
         viewScrollBinding.tvContext.setText(buffer.toString());
+        //
     }
 
     public static Intent createIntent(Context context) {

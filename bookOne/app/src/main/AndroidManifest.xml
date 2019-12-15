@@ -11,7 +11,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".aac.AacActivity"></activity>
+        <activity android:name=".one.OneActivity"></activity>
+        <activity android:name=".aac.AacActivity" />
         <activity android:name=".two.NewCharacterActivity" />
         <activity android:name=".two.ViewScrollActivity" />
         <activity android:name=".two.HighLightActivity" />

@@ -55,6 +55,9 @@ public class HeroActivity extends AppCompatActivity {
             @Override
             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
                 switch (position) {
+                    case 0:
+                        startActivity(ChapterSevenActivity.createIntent(HeroActivity.this));
+                        break;
                     case 6:
                         startActivity(ChapterSevenActivity.createIntent(HeroActivity.this));
                         break;
@@ -63,6 +66,7 @@ public class HeroActivity extends AppCompatActivity {
         });
 
     }
+
     public static Intent createIntent(Context context) {
         return new Intent(context, HeroActivity.class);
     }
