@@ -1,5 +1,6 @@
 package com.danny.bookone.one;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -9,13 +10,17 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
+import android.widget.Toast;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.danny.bookone.Base.StringAdapter;
 import com.danny.bookone.R;
 import com.danny.bookone.databinding.ActivityHeroBinding;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -25,6 +30,7 @@ import java.util.List;
  */
 public class HeroActivity extends AppCompatActivity {
     private ActivityHeroBinding heroBinding;
+    private MyHandler myHandler;
     private String[] chapters = {
             "第一章",
             "第二章",
@@ -45,7 +51,7 @@ public class HeroActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         heroBinding = DataBindingUtil.setContentView(this, R.layout.activity_hero);
-
+        myHandler = new MyHandler(this);
         List<String> stringList = new ArrayList<>(Arrays.asList(chapters));
         StringAdapter adapter = new StringAdapter(stringList);
         heroBinding.rcvData.setLayoutManager(new LinearLayoutManager(this));
@@ -56,7 +62,10 @@ public class HeroActivity extends AppCompatActivity {
             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
                 switch (position) {
                     case 0:
-                        startActivity(ChapterSevenActivity.createIntent(HeroActivity.this));
+//                        startActivity(ChapterSevenActivity.createIntent(HeroActivity.this));
+                        Message message = new Message();
+                        message.what = 2;
+                        myHandler.sendEmptyMessage(message.what);
                         break;
                     case 6:
                         startActivity(ChapterSevenActivity.createIntent(HeroActivity.this));
@@ -71,4 +80,37 @@ public class HeroActivity extends AppCompatActivity {
         return new Intent(context, HeroActivity.class);
     }
 
+    public String getMethodOne() {
+        return "getMethodOne";
+    }
+
+    public String getMethodTwo(String str) {
+        return "getMethodTwo:" + str;
+    }
+
+    public static class MyHandler extends Handler {
+
+        HeroActivity activity;
+
+        public MyHandler(HeroActivity activity) {
+            this.activity = new WeakReference<>(activity).get();
+        }
+
+        @Override
+        public void handleMessage(@NonNull Message msg) {
+            super.handleMessage(msg);
+
+            switch (msg.what) {
+                case 1:
+                    String data = activity.getMethodOne();
+                    Toast.makeText(activity, data, Toast.LENGTH_LONG).show();
+                    break;
+
+                case 2:
+                    String datad = activity.getMethodTwo("我是方法2");
+                    Toast.makeText(activity, datad, Toast.LENGTH_LONG).show();
+                    break;
+            }
+        }
+    }
 }
