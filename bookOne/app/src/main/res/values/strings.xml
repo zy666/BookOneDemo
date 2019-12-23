@@ -14,5 +14,8 @@
         b.应用运行上下文对象Context,在程序中，我们可以理解为当前对象在程序中所处的一个环境，一个与系统交互的过程。Activity,service,Application,都是继承context."\n""\n"
         c.系统交互的过程。Activity,service,Application,都是继承context.
     </string>
+    <string name="three_title">第三章-控件架构与自定义架构</string>
+    <string name="_1">1.控件架构</string>
+    <string name="viewgroup_view">大致分为两类ViewGroup控件和View控件</string>
 
 </resources>
