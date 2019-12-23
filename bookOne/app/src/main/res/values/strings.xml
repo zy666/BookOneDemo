@@ -10,9 +10,9 @@
         Standard libraries:android的标准库"\n""\n"
         Aplication:包含NDK开发，和Java开发。</string>
     <string name="tv_context1">
-        ·四大组件Activity,Service,broadcast,contentProvider通过Intent，通信，传递信息，交换数据。"\n""\n"
-        ·应用运行上下文对象Context,在程序中，我们可以理解为当前对象在程序中所处的一个环境，一个与系统交互的过程。Activity,service,Application,都是继承context."\n""\n"
-        ·系统交互的过程。Activity,service,Application,都是继承context.
+        a.四大组件Activity,Service,broadcast,contentProvider通过Intent，通信，传递信息，交换数据。"\n""\n"
+        b.应用运行上下文对象Context,在程序中，我们可以理解为当前对象在程序中所处的一个环境，一个与系统交互的过程。Activity,service,Application,都是继承context."\n""\n"
+        c.系统交互的过程。Activity,service,Application,都是继承context.
     </string>
 
 </resources>

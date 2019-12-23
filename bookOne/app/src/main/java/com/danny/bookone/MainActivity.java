@@ -12,7 +12,6 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.danny.bookone.Base.StringAdapter;
 import com.danny.bookone.aac.AacActivity;
 import com.danny.bookone.databinding.ActivityMainBinding;
-import com.danny.bookone.one.HeroActivity;
 import com.danny.bookone.two.HighLightActivity;
 
 import java.util.ArrayList;
@@ -44,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
                 switch (position) {
                     case 0:
-                        startActivity(HeroActivity.createIntent(MainActivity.this));
+                        startActivity(HeroActivity.Companion.createIntent(MainActivity.this));
                         break;
                     case 1:
                         startActivity(HighLightActivity.createIntent(MainActivity.this));

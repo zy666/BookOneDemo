@@ -13,8 +13,9 @@ class OneActivity : AppCompatActivity() {
         setContentView(R.layout.activity_one)
     }
 
-//    fun create(ctx: Context): Intent {
-//        var intent:Intent;
-//        return intent
-//    }
+    companion object {
+        fun createIntent(context: Context): Intent {
+            return Intent(context, OneActivity::class.java)
+        }
+    }
 }
