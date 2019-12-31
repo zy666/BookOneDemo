@@ -18,10 +18,12 @@
     <string name="_1">1.控件架构</string>
     <string name="viewgroup_view">大致分为两类ViewGroup控件和View控件</string>
     <string name="default_data">默认值是1</string>
-    <string name="hash_map">hashMap</string>
+    <string name="hash_map">hashMap遍历</string>
     <string name="begin">开启</string>
     <string name="stop">停止</string>
     <string name="bind">绑定</string>
     <string name="unbind">解绑</string>
+    <string name="hash_map_2">hash_map遍历键值对</string>
+    <string name="tv_demo">TextView</string>
 
 </resources>
