@@ -11,6 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".other.HandlerActivity"></activity>
         <activity
             android:name=".one.ThreeActivity"
             android:label="@string/three_title" />

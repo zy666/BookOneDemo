@@ -17,5 +17,6 @@
     <string name="three_title">第三章-控件架构与自定义架构</string>
     <string name="_1">1.控件架构</string>
     <string name="viewgroup_view">大致分为两类ViewGroup控件和View控件</string>
+    <string name="default_data">默认值是1</string>
 
 </resources>
