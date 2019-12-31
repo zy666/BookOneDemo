@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.danny.bookone.Base.StringAdapter
 import com.danny.bookone.aac.AacActivity
 import com.danny.bookone.one.HeroActivity
+import com.danny.bookone.other.CompanyActivity
+import com.danny.bookone.other.DataActivity
 import com.danny.bookone.other.HandlerActivity
 import com.danny.bookone.two.HighLightActivity
 import kotlinx.android.synthetic.main.activity_main.*
@@ -17,7 +19,9 @@ class MainActivity : AppCompatActivity() {
             "Android群英传",
             "Android进阶之光",
             "AAC系列",
-            "handler原理解析")
+            "handler原理解析",
+            "java数据结构",
+            "Android四大组件")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +37,8 @@ class MainActivity : AppCompatActivity() {
                 1 -> startActivity(HighLightActivity.createIntent(this@MainActivity))
                 2 -> startActivity(AacActivity.createIntent(this@MainActivity))
                 3 -> startActivity(HandlerActivity.createIntent(this@MainActivity))
+                4 -> startActivity(DataActivity.createIntent(this@MainActivity))
+                5 -> startActivity(CompanyActivity.createIntent(this@MainActivity))
             }
         }
     }

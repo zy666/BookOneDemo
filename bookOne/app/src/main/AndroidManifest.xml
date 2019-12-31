@@ -11,7 +11,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".other.HandlerActivity"></activity>
+        <service
+            android:name=".service.OpenService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".other.CompanyActivity" />
+        <activity android:name=".other.DataActivity" />
+        <activity android:name=".other.HandlerActivity" />
         <activity
             android:name=".one.ThreeActivity"
             android:label="@string/three_title" />

@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.danny.bookone.Base.StringAdapter
 import com.danny.bookone.R
-import com.danny.bookone.databinding.ActivityHeroBinding
 import com.danny.bookone.one.HeroActivity
 import kotlinx.android.synthetic.main.activity_hero.*
 import java.util.*
