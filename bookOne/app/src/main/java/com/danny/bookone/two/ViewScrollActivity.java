@@ -23,7 +23,7 @@ public class ViewScrollActivity extends AppCompatActivity {
         viewScrollBinding = DataBindingUtil.setContentView(this, R.layout.activity_view_scroll);
 
         //动画移动
-        viewScrollBinding.btnScroll.setAnimation(AnimationUtils.loadAnimation(ViewScrollActivity.this, R.anim.translate));
+//        viewScrollBinding.btnScroll.setAnimation(AnimationUtils.loadAnimation(ViewScrollActivity.this, R.anim.translate));
         //弹性滑动
 //        viewScrollBinding.btnScroll.smoothScroll(-400, 0);
         StringBuffer buffer = new StringBuffer();
