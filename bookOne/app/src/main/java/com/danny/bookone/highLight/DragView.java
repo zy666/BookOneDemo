@@ -28,15 +28,15 @@ public class DragView extends TextView {
         super(context, attrs, defStyleAttr);
     }
 
-    @Override
-    public void computeScroll() {
-        super.computeScroll();
-
-        if (scroller.computeScrollOffset()) {
-            ((View) getParent()).scrollTo(scroller.getCurrX(), scroller.getCurrY());
-            invalidate();
-        }
-    }
+//    @Override
+//    public void computeScroll() {
+//        super.computeScroll();
+//
+//        if (scroller.computeScrollOffset()) {
+//            ((View) getParent()).scrollTo(scroller.getCurrX(), scroller.getCurrY());
+//            invalidate();
+//        }
+//    }
 
     public void smoothScroll(int destX, int destY) {
         int x = getScrollX();
@@ -59,8 +59,8 @@ public class DragView extends TextView {
                 int offsetX = x - lastX;
                 int offsetY = y - lastY;
 //                //第一种
-//                offsetLeftAndRight(offsetX);
-//                offsetTopAndBottom(offsetY);
+                offsetLeftAndRight(offsetX);
+                offsetTopAndBottom(offsetY);
 //                //第2种
 //                layout(getLeft() + offsetX, getTop() + offsetY, getRight() + offsetX, getBottom() + offsetY);
 
