@@ -8,7 +8,6 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.OnLifecycleEvent;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,9 +16,6 @@ import android.view.View;
 
 import com.danny.bookone.R;
 import com.danny.bookone.databinding.ActivityAacBinding;
-import com.danny.bookone.two.HighLightActivity;
-
-import java.util.logging.Logger;
 
 public class AacActivity extends AppCompatActivity {
     private ActivityAacBinding aacBinding;

@@ -10,7 +10,7 @@ import com.danny.bookone.one.HeroActivity
 import com.danny.bookone.other.CompanyActivity
 import com.danny.bookone.other.DataActivity
 import com.danny.bookone.other.HandlerActivity
-import com.danny.bookone.two.HighLightActivity
+import com.danny.bookone.highLight.HighLightActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
@@ -33,12 +33,12 @@ class MainActivity : AppCompatActivity() {
         rcv_chapter.adapter = adapter
         adapter.setOnItemChildClickListener { adapter, view, position ->
             when (position) {
-                0 -> startActivity(HeroActivity.createIntent(this@MainActivity))
-                1 -> startActivity(HighLightActivity.createIntent(this@MainActivity))
-                2 -> startActivity(AacActivity.createIntent(this@MainActivity))
-                3 -> startActivity(HandlerActivity.createIntent(this@MainActivity))
-                4 -> startActivity(DataActivity.createIntent(this@MainActivity))
-                5 -> startActivity(CompanyActivity.createIntent(this@MainActivity))
+                0 -> startActivity(HeroActivity.createIntent(this@MainActivity))//Android群英传
+                1 -> startActivity(HighLightActivity.createIntent(this@MainActivity))//android进阶之光
+                2 -> startActivity(AacActivity.createIntent(this@MainActivity))//Jetpack架构篇
+                3 -> startActivity(HandlerActivity.createIntent(this@MainActivity))//handler线程篇
+                4 -> startActivity(DataActivity.createIntent(this@MainActivity))//数据结构篇。hashMap
+                5 -> startActivity(CompanyActivity.createIntent(this@MainActivity))//android基础组件篇。服务，广播，activity
             }
         }
     }

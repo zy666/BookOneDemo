@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <com.danny.bookone.two.DragView
+        <com.danny.bookone.highLight.DragView
             android:id="@+id/btn_scroll"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -32,5 +32,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="属性动画" />
+
+        <com.danny.bookone.highLight.SplitTextView
+            android:id="@+id/tv_split"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 </layout>

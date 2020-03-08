@@ -1,11 +1,10 @@
-package com.danny.bookone.two;
+package com.danny.bookone.highLight;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.Scroller;
 import android.widget.TextView;
 

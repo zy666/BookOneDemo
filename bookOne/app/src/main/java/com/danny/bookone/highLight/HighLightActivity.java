@@ -1,18 +1,13 @@
-package com.danny.bookone.two;
+package com.danny.bookone.highLight;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.Lifecycle;
-import androidx.lifecycle.LifecycleObserver;
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.OnLifecycleEvent;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -34,7 +29,7 @@ public class HighLightActivity extends AppCompatActivity {
             "第二章",
             "第三章--view体系与自定义view",
             "第四章",
-            "第五章",
+            "第五章--网络编程与网络框架",
             "第六章",
             "第七章",
             "第八章",
@@ -64,6 +59,9 @@ public class HighLightActivity extends AppCompatActivity {
                         break;
                     case 2:
                         startActivity(ViewScrollActivity.createIntent(HighLightActivity.this));
+                        break;
+                    case 4:
+                        startActivity(NetworkActivity.createIntent(HighLightActivity.this));
                         break;
                 }
             }
