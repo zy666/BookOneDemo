@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:text="属性动画" />
 
-        <com.danny.bookone.highLight.SplitTextView
+        <com.danny.bookone.highLight.SplitTextViewLayout
             android:id="@+id/tv_split"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />

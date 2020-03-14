@@ -25,5 +25,6 @@
     <string name="unbind">解绑</string>
     <string name="hash_map_2">hash_map遍历键值对</string>
     <string name="tv_demo">TextView</string>
+    <string name="down_img">下载图片</string>
 
 </resources>
