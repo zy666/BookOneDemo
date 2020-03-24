@@ -39,6 +39,7 @@ public class HandlerActivity extends AppCompatActivity implements View.OnClickLi
     private static String[] PERMISSIONS_STORAGE = {
             Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.WRITE_EXTERNAL_STORAGE};
+    private String downLoadUrl = "https://ww1.sinaimg.cn/mw690/8f0b8983gy1gcum0n2g5tj21yu2jou0z.jpg";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,8 +60,7 @@ public class HandlerActivity extends AppCompatActivity implements View.OnClickLi
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == REQUEST_PERMISSION_CODE) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                new FuckTianyiAsyncTask(this)
-                        .execute("https://ww1.sinaimg.cn/large/8f0b8983gy1g0zubz9uqdj20e80e8tix.jpg", "111");
+                new FuckTianyiAsyncTask(this).execute(downLoadUrl);
             }
         }
     }
@@ -69,13 +69,13 @@ public class HandlerActivity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_down:
+                handlerBinding.ivDown.setImageURI(null);
                 if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) {
                     if (ActivityCompat.checkSelfPermission(this,
                             Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
                         ActivityCompat.requestPermissions(this, PERMISSIONS_STORAGE, REQUEST_PERMISSION_CODE);
                     } else {
-                        new FuckTianyiAsyncTask(this)
-                                .execute("https://ww1.sinaimg.cn/large/8f0b8983gy1g0zubz9uqdj20e80e8tix.jpg", "111");
+                        new FuckTianyiAsyncTask(this).execute(downLoadUrl);
                     }
                 }
 
@@ -133,7 +133,7 @@ public class HandlerActivity extends AppCompatActivity implements View.OnClickLi
                 InputStream in = conn.getInputStream();
                 FileOutputStream out = new FileOutputStream(
                         Environment.getExternalStoragePublicDirectory(
-                                Environment.DIRECTORY_DOWNLOADS).getPath() + "img.jpg");
+                                Environment.DIRECTORY_DOWNLOADS).getPath() + "chutian.jpg");
                 while ((len = in.read(bytes)) != -1) {
                     out.write(bytes, 0, len);
                     publishProgress(DOWNLOAD_PROGRESS, len);
@@ -181,7 +181,7 @@ public class HandlerActivity extends AppCompatActivity implements View.OnClickLi
             if (integer == DOWNLOAD_SUCCESS) {
                 activity.handlerBinding.ivDown.setImageURI(
                         Uri.parse(Environment.getExternalStoragePublicDirectory(
-                                Environment.DIRECTORY_DOWNLOADS).getPath() + "img.jpg"));
+                                Environment.DIRECTORY_DOWNLOADS).getPath() + "chutian.jpg"));
 
             }
         }

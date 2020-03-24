@@ -11,6 +11,7 @@ import com.danny.bookone.other.CompanyActivity
 import com.danny.bookone.other.DataActivity
 import com.danny.bookone.other.HandlerActivity
 import com.danny.bookone.highLight.HighLightActivity
+import com.danny.bookone.img.GlideImgActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
@@ -21,7 +22,8 @@ class MainActivity : AppCompatActivity() {
             "AAC系列",
             "handler原理解析",
             "java数据结构",
-            "Android四大组件")
+            "Android四大组件",
+            "glide图片加载框架设计")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,6 +41,7 @@ class MainActivity : AppCompatActivity() {
                 3 -> startActivity(HandlerActivity.createIntent(this@MainActivity))//handler线程篇
                 4 -> startActivity(DataActivity.createIntent(this@MainActivity))//数据结构篇。hashMap
                 5 -> startActivity(CompanyActivity.createIntent(this@MainActivity))//android基础组件篇。服务，广播，activity
+                6 -> startActivity(GlideImgActivity.createIntent(this@MainActivity))//android基础组件篇。服务，广播，activity
             }
         }
     }

@@ -6,6 +6,8 @@ import androidx.databinding.DataBindingUtil;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.animation.AnimationUtils;
 
 import com.danny.bookone.R;
@@ -37,5 +39,16 @@ public class ViewScrollActivity extends AppCompatActivity {
 
     public static Intent createIntent(Context context) {
         return new Intent(context, ViewScrollActivity.class);
+    }
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        Log.e("dispatchTouchEvent", "activity");
+        return super.dispatchTouchEvent(ev);
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        Log.e("onTouchEvent", "activity");
+        return super.onTouchEvent(event);
     }
 }
