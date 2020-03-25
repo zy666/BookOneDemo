@@ -17,7 +17,7 @@ public class BitmapDispatcher extends Thread {
     private Handler mHandler = new Handler(Looper.getMainLooper());
     private LinkedBlockingQueue<BitmapRequest> mRequestQueue;
 
-    private BitmapDispatcher(LinkedBlockingQueue requestQueue) {
+    public BitmapDispatcher(LinkedBlockingQueue requestQueue) {
         mRequestQueue = requestQueue;
     }
 
