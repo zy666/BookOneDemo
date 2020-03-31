@@ -10,8 +10,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 public abstract class BaseFragment extends Fragment {
-    private boolean isViewInitiated;//fragment的view加载完毕的标记
-    private boolean isLazyInitiated;//是否懒加载
 
 
     @Override
@@ -33,6 +31,8 @@ public abstract class BaseFragment extends Fragment {
             lazyData();
         }
     }
+    private boolean isViewInitiated;//fragment的view加载完毕的标记
+    private boolean isLazyInitiated;//是否懒加载
 
     private void lazyData() {
         if (getUserVisibleHint() && isViewInitiated && !isLazyInitiated) {
