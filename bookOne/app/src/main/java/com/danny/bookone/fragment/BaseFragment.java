@@ -38,9 +38,10 @@ public abstract class BaseFragment extends Fragment {
         if (getUserVisibleHint() && isViewInitiated && !isLazyInitiated) {
             onLazyData();
             isLazyInitiated = true;
-        } else {
-            isLazyInitiated = false;
         }
+//        else {//如果不需要懒加载，注释打开，每次可见都会刷刷新页面
+//            isLazyInitiated = false;
+//        }
     }
 
     protected abstract void onLazyData();
