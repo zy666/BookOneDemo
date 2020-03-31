@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,23 +30,26 @@ import com.danny.bookone.other.DataActivity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TestFragment extends Fragment {
+public class TestFragment extends BaseFragment {
     private List<String> arraylist = new ArrayList<>();
     private FragmentTestBinding testBinding;
 
     public TestFragment() {
         // Required empty public constructor
     }
+
     public static TestFragment newInstance() {
         TestFragment fragment = new TestFragment();
         return fragment;
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        testBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_test, container, false);
+        testBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_test, container, false);
         return testBinding.getRoot();
     }
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -88,5 +92,19 @@ public class TestFragment extends Fragment {
         testBinding.rcvChapter.setLayoutManager(new LinearLayoutManager(getActivity()));
         testBinding.rcvChapter.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL));
         testBinding.rcvChapter.setAdapter(adapter);
+    }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        Log.e("Test", isVisibleToUser + "");
+    }
+
+
+
+    @Override
+    protected void onLazyData() {
+
+        Log.e("Test-->", "onLazyData");
     }
 }

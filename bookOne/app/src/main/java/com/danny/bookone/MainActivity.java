@@ -45,8 +45,8 @@ public class MainActivity extends AppCompatActivity {
         List<Fragment> fragments = new ArrayList<>();
         List<String> stringList = new ArrayList<>();
         stringList.add("one");
-        stringList.add("one");
-        stringList.add("one");
+        stringList.add("two");
+        stringList.add("three");
         fragments.add(TestFragment.newInstance());
         fragments.add(Test2Fragment.newInstance());
         fragments.add(Test3Fragment.newInstance());
