@@ -20,8 +20,6 @@ public class OpenService extends Service {
         String data = intent.getStringExtra("key");
         Toast.makeText(OpenService.this, data, Toast.LENGTH_LONG).show();
         return super.onStartCommand(intent, flags, startId);
-
-
     }
 
     @Override

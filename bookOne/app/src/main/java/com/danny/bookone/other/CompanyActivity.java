@@ -26,6 +26,7 @@ public class CompanyActivity extends AppCompatActivity implements View.OnClickLi
         companyBinding.button5.setOnClickListener(this);
         companyBinding.button6.setOnClickListener(this);
         companyBinding.button7.setOnClickListener(this);
+        sendOrderedBroadcast(new Intent(), null);
     }
 
     public static Intent createIntent(Context context) {
