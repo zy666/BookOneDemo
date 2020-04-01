@@ -3,14 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".github.DrawActivity">
-
-    </LinearLayout>
-
     <data>
 
     </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.danny.bookone.github.view.DrawPaintView
+                android:layout_width="match_parent"
+                android:layout_height="150dp" />
+
+            <com.danny.bookone.github.view.DrawCanvasView
+                android:layout_width="match_parent"
+                android:layout_height="150dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+
 </layout>
