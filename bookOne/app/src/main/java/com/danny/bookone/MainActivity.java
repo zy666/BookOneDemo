@@ -47,9 +47,11 @@ public class MainActivity extends AppCompatActivity {
         stringList.add("one");
         stringList.add("two");
         stringList.add("three");
+
         fragments.add(TestFragment.newInstance());
         fragments.add(Test2Fragment.newInstance());
         fragments.add(Test3Fragment.newInstance());
+
         mainPageViewPager = new MainPageViewPager(getSupportFragmentManager(), fragments);
         mainPageViewPager.setTitle(stringList);
         mainBinding.viewPager.setAdapter(mainPageViewPager);

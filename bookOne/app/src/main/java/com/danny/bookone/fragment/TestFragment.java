@@ -95,14 +95,6 @@ public class TestFragment extends BaseFragment {
     }
 
     @Override
-    public void setUserVisibleHint(boolean isVisibleToUser) {
-        super.setUserVisibleHint(isVisibleToUser);
-        Log.e("Test", isVisibleToUser + "");
-    }
-
-
-
-    @Override
     protected void onLazyData() {
 
         Log.e("Test-->", "onLazyData");

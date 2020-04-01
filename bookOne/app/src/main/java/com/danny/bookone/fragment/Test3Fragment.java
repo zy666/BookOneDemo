@@ -32,11 +32,6 @@ public class Test3Fragment extends BaseFragment {
         return inflater.inflate(R.layout.fragment_test3, container, false);
     }
 
-    @Override
-    public void setUserVisibleHint(boolean isVisibleToUser) {
-        super.setUserVisibleHint(isVisibleToUser);
-        Log.e("Test3", isVisibleToUser + "");
-    }
 
 
     @Override

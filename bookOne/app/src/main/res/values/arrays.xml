@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="github">
+        <item >view原理</item>
+    </string-array>
+    <string-array name="draw">
+        <item >绘图基础</item>
+        <item >路径绘制</item>
+        <item >文字绘制</item>
+        <item >区域操作</item>
+        <item >画布进阶</item>
+    </string-array>
+</resources>
