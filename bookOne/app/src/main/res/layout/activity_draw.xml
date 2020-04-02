@@ -34,6 +34,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="150dp" />
 
+            <com.danny.bookone.view.MyTextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="123123123123123"
+                app:myText="666777888999"
+                app:myTextColor="@color/colorPrimary"
+                app:myTextMaxLength="10"
+                app:myTextSize="@dimen/dp_40"
+                app:myTextUnderline="true" />
+
         </LinearLayout>
     </ScrollView>
 
