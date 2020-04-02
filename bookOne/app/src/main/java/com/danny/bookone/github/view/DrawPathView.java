@@ -4,7 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Rect;
+import android.graphics.Path;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
@@ -12,60 +12,69 @@ import android.view.View;
 import androidx.annotation.Nullable;
 
 /**
- * 画布用法
+ * 路径绘制
  */
-public class DrawCanvasView extends View {
+public class DrawPathView extends View {
     private Paint mPaint;
 
-    public DrawCanvasView(Context context) {
+    public DrawPathView(Context context) {
         this(context, null);
     }
 
-    public DrawCanvasView(Context context, @Nullable AttributeSet attrs) {
+    public DrawPathView(Context context, @Nullable AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public DrawCanvasView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public DrawPathView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
+    }
+
+    private void init() {
+        //创建画笔
+        mPaint = new Paint();
+        mPaint.setStrokeWidth(10);//单位px
+        mPaint.setColor(Color.RED);//单位px
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        //设置画布
-        canvas.drawColor(Color.GRAY);
-        //划线
-        mPaint.setColor(Color.WHITE);
-        mPaint.setStrokeWidth(30);//单位px
-        canvas.drawLine(100, 100, 300, 100, mPaint);
+        canvas.drawColor(Color.parseColor("#f1f1f1"));
 
-        //画点，点的大小取决于setStrokeWidth
-        mPaint.setColor(Color.YELLOW);
-        mPaint.setStrokeWidth(50);//单位px
-        canvas.drawPoint(350, 100, mPaint);
-
-        //想画出圆形的点,设置笔帽
-//        mPaint.setStrokeCap(Paint.Cap.ROUND);
-        canvas.drawPoint(450, 100, mPaint);
-
-        //矩形结构
-
-        //填充矩形
-        canvas.drawRect(100, 200, 400, 400, mPaint);
-        //描边矩形
-        mPaint.setStrokeWidth(10);//单位px
+        //画直线路径,绘制直线路径涉及：起点、终点和闭环。
         mPaint.setStyle(Paint.Style.STROKE);
-        canvas.drawRect(500, 200, 600, 400, mPaint);
+        Path path = new Path();
+        //第一条线的起点
+        path.moveTo(100, 100);
+        //第1条线的终点，第二条线的起点
+        path.lineTo(400, 300);
+        //第2条线的终点，第二条线的终点
+        path.lineTo(100, 300);
+        path.close();
+        canvas.drawPath(path, mPaint);
 
-        //圆角矩形
-        RectF rect = new RectF(700, 200, 800, 400);
-        float radius = 5f;
-        mPaint.setStrokeWidth(10);//单位px
+        //画曲线路径,
+        Paint paint = new Paint();
+        mPaint.setStyle(Paint.Style.FILL);
+        Path pathCircle = new Path();
+        RectF rectF = new RectF(500, 100, 600, 200);
+        //指定角度
+        pathCircle.arcTo(rectF, 0, 90);
+        canvas.drawOval(rectF, paint);
+        canvas.drawPath(pathCircle, mPaint);
+
+        //画曲线路径,
         mPaint.setStyle(Paint.Style.STROKE);
-        canvas.drawRoundRect(rect, radius, radius, mPaint);
+        Path pathCircleS = new Path();
 
+        RectF rectFs = new RectF(800, 100, 900, 200);
+        //指定角度
+        pathCircleS.arcTo(rectFs, 0, 90);
+        canvas.drawOval(rectFs, paint);
+        canvas.drawPath(pathCircleS, mPaint);
     }
+
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
@@ -101,12 +110,5 @@ public class DrawCanvasView extends View {
             }
         }
         return result;
-    }
-
-
-    private void init() {
-        //创建画笔
-        mPaint = new Paint();
-        mPaint.setAntiAlias(true);
     }
 }
