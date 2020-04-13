@@ -13,7 +13,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".github.DrawActivity"></activity>
+        <activity android:name=".github.DrawActivity"/>
+        <activity android:name=".github.PathActivity"/>
         <activity android:name=".github.ViewActivity" />
         <activity android:name=".img.GlideImgActivity" />
         <activity android:name=".highLight.NetworkActivity" />

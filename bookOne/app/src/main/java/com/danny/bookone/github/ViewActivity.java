@@ -39,6 +39,9 @@ public class ViewActivity extends AppCompatActivity {
                     case 0:
                         startActivity(DrawActivity.createIntent(ViewActivity.this));
                         break;
+                    case 1:
+                        startActivity(PathActivity.createIntent(ViewActivity.this));
+                        break;
                 }
             }
         });

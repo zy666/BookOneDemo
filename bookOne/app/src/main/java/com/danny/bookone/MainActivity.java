@@ -22,6 +22,7 @@ import com.danny.bookone.fragment.MainPageViewPager;
 import com.danny.bookone.fragment.Test2Fragment;
 import com.danny.bookone.fragment.Test3Fragment;
 import com.danny.bookone.fragment.TestFragment;
+import com.danny.bookone.fragment.ThirdFrameFragment;
 import com.danny.bookone.highLight.HighLightActivity;
 import com.danny.bookone.img.GlideImgActivity;
 import com.danny.bookone.one.HandlerActivity;
@@ -47,10 +48,12 @@ public class MainActivity extends AppCompatActivity {
         stringList.add("one");
         stringList.add("two");
         stringList.add("three");
+        stringList.add("four");
 
         fragments.add(TestFragment.newInstance());
         fragments.add(Test2Fragment.newInstance());
         fragments.add(Test3Fragment.newInstance());
+        fragments.add(ThirdFrameFragment.newInstance());
 
         mainPageViewPager = new MainPageViewPager(getSupportFragmentManager(), fragments);
         mainPageViewPager.setTitle(stringList);
@@ -82,6 +85,9 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.item_bottom_3:
                         mainBinding.viewPager.setCurrentItem(2);
+                        break;
+                    case R.id.item_bottom_4:
+                        mainBinding.viewPager.setCurrentItem(3);
                         break;
                 }
                 return false;

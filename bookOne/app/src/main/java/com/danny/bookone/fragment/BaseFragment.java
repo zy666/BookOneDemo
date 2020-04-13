@@ -9,12 +9,20 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public abstract class BaseFragment extends Fragment {
+import org.greenrobot.eventbus.EventBus;
 
+public abstract class BaseFragment extends Fragment {
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+//        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+//        EventBus.getDefault().unregister(this);
     }
 
     @Override
@@ -31,6 +39,7 @@ public abstract class BaseFragment extends Fragment {
             lazyData();
         }
     }
+
     private boolean isViewInitiated;//fragment的view加载完毕的标记
     private boolean isLazyInitiated;//是否懒加载
 

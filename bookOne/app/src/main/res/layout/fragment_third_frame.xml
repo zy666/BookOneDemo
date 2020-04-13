@@ -11,20 +11,17 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <Button
+            android:id="@+id/btn_send_event"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="发送字符串'hello'" />
+
         <TextView
+            android:id="@+id/tv_show"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="力扣算法-每日一题"
-            android:textAlignment="center"
-            android:textColor="@color/colorAccent"
-            android:textSize="24sp" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_calculate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
+            android:text="展示字符串" />
 
     </LinearLayout>
 </layout>

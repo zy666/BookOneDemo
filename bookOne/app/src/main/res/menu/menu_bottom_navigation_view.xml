@@ -4,19 +4,25 @@
     <item
         android:id="@+id/item_bottom_1"
         android:enabled="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/book"
         android:title="书籍"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/item_bottom_2"
         android:enabled="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/github"
         android:title="github"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/item_bottom_3"
         android:enabled="true"
-        android:icon="@mipmap/ic_launcher"
-        android:title="其他"
+        android:icon="@mipmap/calculate"
+        android:title="算法"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/item_bottom_4"
+        android:enabled="true"
+        android:icon="@mipmap/frame"
+        android:title="三方框架"
         app:showAsAction="ifRoom" />
 </menu>

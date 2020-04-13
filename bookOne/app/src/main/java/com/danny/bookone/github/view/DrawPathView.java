@@ -66,6 +66,7 @@ public class DrawPathView extends View {
 
         //画曲线路径,
         mPaint.setStyle(Paint.Style.STROKE);
+        mPaint.setStrokeWidth(10);
         Path pathCircleS = new Path();
 
         RectF rectFs = new RectF(800, 100, 900, 200);
@@ -73,8 +74,31 @@ public class DrawPathView extends View {
         pathCircleS.arcTo(rectFs, 0, 90);
         canvas.drawOval(rectFs, paint);
         canvas.drawPath(pathCircleS, mPaint);
+
+        drawArc(canvas, 100, true);
+        drawArc(canvas, 300, false);
     }
 
+    public void drawArc(Canvas canvas, float left, boolean force) {
+        float top = 400;
+        RectF rectF;
+        if (force) {
+            rectF = new RectF(left, top, left + 100, top + 100);
+        } else {
+            rectF = new RectF(left, top, left + 50, top + 100);
+        }
+        Paint ovalPaint = new Paint();
+        //椭圆背景
+        canvas.drawOval(rectF, ovalPaint);
+
+        Path path = new Path();
+        path.moveTo(left, top);
+
+        path.arcTo(rectF, 0, 90, force);
+
+        canvas.drawPath(path, mPaint);
+
+    }
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {

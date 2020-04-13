@@ -82,13 +82,7 @@ public class TestFragment extends BaseFragment {
                 }
             }
         });
-        arraylist.add("Android群英传");
-        arraylist.add("Android进阶之光");
-        arraylist.add("AAC系列");
-        arraylist.add("handler原理解析");
-        arraylist.add("java数据结构");
-        arraylist.add("Android四大组件");
-        arraylist.add("glide图片加载框架设计");
+
         testBinding.rcvChapter.setLayoutManager(new LinearLayoutManager(getActivity()));
         testBinding.rcvChapter.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL));
         testBinding.rcvChapter.setAdapter(adapter);
@@ -96,7 +90,17 @@ public class TestFragment extends BaseFragment {
 
     @Override
     protected void onLazyData() {
-
+        initData();
         Log.e("Test-->", "onLazyData");
+    }
+
+    private void initData() {
+        arraylist.add("Android群英传");
+        arraylist.add("Android进阶之光");
+        arraylist.add("AAC系列");
+        arraylist.add("handler原理解析");
+        arraylist.add("java数据结构");
+        arraylist.add("Android四大组件");
+        arraylist.add("glide图片加载框架设计");
     }
 }
