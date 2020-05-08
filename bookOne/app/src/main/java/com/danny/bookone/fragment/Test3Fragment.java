@@ -30,6 +30,7 @@ import com.danny.bookone.other.DataActivity;
 import com.danny.bookone.suanfa.Calculate;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -79,7 +80,7 @@ public class Test3Fragment extends BaseFragment {
                         Calculate.fastSort(maoPaoArray, 0, maoPaoArray.length - 1);
                         break;
                     case 4:
-                        Calculate.insertSort(maoPaoArray, 0, maoPaoArray.length - 1);
+                        Calculate.insertSort(maoPaoArray);
                         break;
                 }
             }
@@ -106,8 +107,9 @@ public class Test3Fragment extends BaseFragment {
     protected void onLazyData() {
         Log.e("Test3-->", "onLazyData");
         calculateList.add(" a good   example ");
-        calculateList.add("冒泡排序(5,9,2,8,7,6,4)");
-        calculateList.add("选择排序(5,9,2,8,7,6,4)");
-        calculateList.add("快速排序(5,9,2,8,7,6,4)");
+        calculateList.add("冒泡排序" + Arrays.toString(maoPaoArray));
+        calculateList.add("选择排序" + Arrays.toString(maoPaoArray));
+        calculateList.add("快速排序" + Arrays.toString(maoPaoArray));
+        calculateList.add("插入排序" + Arrays.toString(maoPaoArray));
     }
 }

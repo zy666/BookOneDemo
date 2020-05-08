@@ -95,11 +95,22 @@ public class Calculate {
      * 插入排序
      *
      * @param arr
-     * @param startIndex
-     * @param endIndex
      */
-    public static void insertSort(int[] arr, int startIndex, int endIndex) {
-
+    public static void insertSort(int[] arr) {
+        for (int i = 1; i < arr.length; i++) {
+            int temp = arr[i];
+            int j;
+            for (j = i - 1; j >= 0; j--) {
+                Log.e("插入排序", "第一次插入j的坐标:" + j);
+                if (arr[j] > temp) {
+                    arr[j + 1] = arr[j];
+                } else {
+                    break;
+                }
+            }
+            arr[j + 1] = temp;
+            Log.e("插入排序", "第一次插入结束" + Arrays.toString(arr));
+        }
     }
 
     /**
