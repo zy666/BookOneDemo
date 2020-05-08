@@ -41,26 +41,29 @@ public class GlideImgActivity extends AppCompatActivity {
         });
     }
 
+    String imgUrl = "https://ww1.sinaimg.cn/mw690/8f0b8983gy1gcum0n2g5tj21yu2jou0z.jpg";
+
     private void single() {
         ImageView img = new ImageView(this);
         img.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT));
         glideImgBinding.imgList.addView(img);
-        NeGlide.with(this)
-                .load("https://ww1.sinaimg.cn/mw690/8f0b8983gy1gcum0n2g5tj21yu2jou0z.jpg")
-                .listener(new RequestListener() {
-                    @Override
-                    public boolean onSuccess(Bitmap bitmap) {
-                        Toast.makeText(GlideImgActivity.this, "加载成功", Toast.LENGTH_SHORT).show();
-                        return false;
-                    }
-
-                    @Override
-                    public boolean onFailure() {
-                        Toast.makeText(GlideImgActivity.this, "失败", Toast.LENGTH_SHORT).show();
-                        return false;
-                    }
-                }).into(img);
+        Glide.with(this).load(imgUrl).into(img);
+//        NeGlide.with(this)
+//                .load(imgUrl)
+//                .listener(new RequestListener() {
+//                    @Override
+//                    public boolean onSuccess(Bitmap bitmap) {
+//                        Toast.makeText(GlideImgActivity.this, "加载成功", Toast.LENGTH_SHORT).show();
+//                        return false;
+//                    }
+//
+//                    @Override
+//                    public boolean onFailure() {
+//                        Toast.makeText(GlideImgActivity.this, "失败", Toast.LENGTH_SHORT).show();
+//                        return false;
+//                    }
+//                }).into(img);
 
     }
 

@@ -27,6 +27,7 @@ import com.danny.bookone.one.HandlerActivity;
 import com.danny.bookone.one.HeroActivity;
 import com.danny.bookone.other.CompanyActivity;
 import com.danny.bookone.other.DataActivity;
+import com.danny.bookone.suanfa.Calculate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +38,7 @@ import java.util.List;
 public class Test3Fragment extends BaseFragment {
     private FragmentTest3Binding test3Binding;
     private List<String> calculateList = new ArrayList<>();
+    private int[] maoPaoArray = {4, 7, 6, 5, 3, 2, 8, 1};
 
     public Test3Fragment() {
         // Required empty public constructor
@@ -65,6 +67,20 @@ public class Test3Fragment extends BaseFragment {
                     case 0:
                         fanZhuan(calculateList.get(position));
                         break;
+                    case 1:
+//                        Calculate.maoPao(maoPaoArray, position, getActivity());
+                        Calculate.maoPaoYouhua(maoPaoArray, position, getActivity());
+//                        Calculate.finalMaoPao(maoPaoArray, position, getActivity());
+                        break;
+                    case 2:
+                        Calculate.selectSort(maoPaoArray, maoPaoArray.length);
+                        break;
+                    case 3:
+                        Calculate.fastSort(maoPaoArray, 0, maoPaoArray.length - 1);
+                        break;
+                    case 4:
+                        Calculate.insertSort(maoPaoArray, 0, maoPaoArray.length - 1);
+                        break;
                 }
             }
         });
@@ -72,6 +88,7 @@ public class Test3Fragment extends BaseFragment {
         test3Binding.recyclerCalculate.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL));
         test3Binding.recyclerCalculate.setAdapter(adapter);
     }
+
 
     public void fanZhuan(String s) {
         String[] newStr = s.trim().split(" ");
@@ -81,13 +98,16 @@ public class Test3Fragment extends BaseFragment {
                 StringBuffer.append(newStr[i]).append(" ");
             }
         }
-        Log.e("fanzhuan", StringBuffer.toString().substring(0, StringBuffer.length() - 1 > 0 ? StringBuffer.length() - 1 : 0));
-//        Toast.makeText(getActivity(), StringBuffer.toString().substring(0, StringBuffer.length() - 1), Toast.LENGTH_LONG).show();
+//        Log.e("fanzhuan", StringBuffer.toString().substring(0, StringBuffer.length() - 1 > 0 ? StringBuffer.length() - 1 : 0));
+        Toast.makeText(getActivity(), StringBuffer.toString().substring(0, StringBuffer.length() - 1), Toast.LENGTH_LONG).show();
     }
 
     @Override
     protected void onLazyData() {
         Log.e("Test3-->", "onLazyData");
         calculateList.add(" a good   example ");
+        calculateList.add("冒泡排序(5,9,2,8,7,6,4)");
+        calculateList.add("选择排序(5,9,2,8,7,6,4)");
+        calculateList.add("快速排序(5,9,2,8,7,6,4)");
     }
 }
