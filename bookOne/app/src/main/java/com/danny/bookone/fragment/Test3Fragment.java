@@ -30,6 +30,7 @@ import com.danny.bookone.other.DataActivity;
 import com.danny.bookone.suanfa.Calculate;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -73,13 +74,22 @@ public class Test3Fragment extends BaseFragment {
 //                        Calculate.finalMaoPao(maoPaoArray, position, getActivity());
                         break;
                     case 2:
-                        Calculate.selectSort(maoPaoArray, maoPaoArray.length);
+                        Calculate.selectSort(maoPaoArray, getActivity());
                         break;
                     case 3:
-                        Calculate.fastSort(maoPaoArray, 0, maoPaoArray.length - 1);
+                        Calculate.fastSort(maoPaoArray, 0, maoPaoArray.length - 1, getActivity());
                         break;
                     case 4:
-                        Calculate.insertSort(maoPaoArray, 0, maoPaoArray.length - 1);
+                        Calculate.insertSort(maoPaoArray, getActivity());
+                        break;
+                    case 6:
+                        Calculate.halfSearch(maoPaoArray, getActivity());
+                        break;
+                    case 7:
+                        Calculate.treeSearch(maoPaoArray, getActivity());
+                        break;
+                    case 8:
+                        Calculate.hashSearch(maoPaoArray, getActivity());
                         break;
                 }
             }
@@ -106,8 +116,13 @@ public class Test3Fragment extends BaseFragment {
     protected void onLazyData() {
         Log.e("Test3-->", "onLazyData");
         calculateList.add(" a good   example ");
-        calculateList.add("冒泡排序(5,9,2,8,7,6,4)");
-        calculateList.add("选择排序(5,9,2,8,7,6,4)");
-        calculateList.add("快速排序(5,9,2,8,7,6,4)");
+        calculateList.add("冒泡排序：" + Arrays.toString(maoPaoArray));
+        calculateList.add("选择排序：" + Arrays.toString(maoPaoArray));
+        calculateList.add("快速排序：" + Arrays.toString(maoPaoArray));
+        calculateList.add("插入排序：" + Arrays.toString(maoPaoArray));
+        calculateList.add("====================================");
+        calculateList.add("折半查找：" + Arrays.toString(maoPaoArray));
+        calculateList.add("树查找：" + Arrays.toString(maoPaoArray));
+        calculateList.add("hash查找：" + Arrays.toString(maoPaoArray));
     }
 }

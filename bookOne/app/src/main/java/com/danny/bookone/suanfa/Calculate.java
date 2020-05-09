@@ -76,7 +76,7 @@ public class Calculate {
 
     }
 
-    public static void selectSort(int[] arr, int length) {
+    public static void selectSort(int[] arr, Context context) {
         for (int i = 0; i < arr.length; i++) {
             int pos = i;
             for (int j = i + 1; j < arr.length; j++) {
@@ -89,17 +89,62 @@ public class Calculate {
             arr[pos] = temp;
             Log.e("选择排序", Arrays.toString(arr));
         }
+        Toast.makeText(context, Arrays.toString(arr), Toast.LENGTH_LONG).show();
+
     }
 
     /**
      * 插入排序
      *
      * @param arr
-     * @param startIndex
-     * @param endIndex
      */
-    public static void insertSort(int[] arr, int startIndex, int endIndex) {
+    public static void insertSort(int[] arr, Context context) {
+        for (int i = 1; i < arr.length; i++) {
+            int temp = arr[i];
+            int j;
+            for (j = i - 1; j >= 0; j--) {
+                if (arr[j] > temp) {
+                    arr[j + 1] = arr[j];
+                } else {
+                    break;
+                }
+            }
+            //开始插入操作
+            arr[j + 1] = temp;
+        }
+        Log.e("插入排序：", Arrays.toString(arr));
+        Toast.makeText(context, Arrays.toString(arr), Toast.LENGTH_LONG).show();
 
+    }
+
+    /**
+     * 折半查找
+     *
+     * @param arr
+     */
+    public static void halfSearch(int[] arr, Context context) {
+        Log.e("插入排序：", Arrays.toString(arr));
+        Toast.makeText(context, Arrays.toString(arr), Toast.LENGTH_LONG).show();
+    }
+
+    /**
+     * 树查找
+     *
+     * @param arr
+     */
+    public static void treeSearch(int[] arr, Context context) {
+        Log.e("插入排序：", Arrays.toString(arr));
+        Toast.makeText(context, Arrays.toString(arr), Toast.LENGTH_LONG).show();
+    }
+
+    /**
+     * hash查找
+     *
+     * @param arr
+     */
+    public static void hashSearch(int[] arr, Context context) {
+        Log.e("插入排序：", Arrays.toString(arr));
+        Toast.makeText(context, Arrays.toString(arr), Toast.LENGTH_LONG).show();
     }
 
     /**
@@ -109,7 +154,7 @@ public class Calculate {
      * @param startIndex
      * @param endIndex
      */
-    public static void fastSort(int[] arr, int startIndex, int endIndex) {
+    public static void fastSort(int[] arr, int startIndex, int endIndex, Context context) {
         // 递归结束条件：startIndex大等于endIndex的时候
         if (startIndex >= endIndex) {
             return;
@@ -119,9 +164,11 @@ public class Calculate {
         Log.e("快速排序-填坑法", "第一次递归结束" + Arrays.toString(arr));
 
         // 用分治法递归数列的两部分
-        fastSort(arr, startIndex, pivotIndex - 1);
-        fastSort(arr, pivotIndex + 1, endIndex);
+        fastSort(arr, startIndex, pivotIndex - 1, context);
+        fastSort(arr, pivotIndex + 1, endIndex, context);
         Log.e("快速排序-填坑法", Arrays.toString(arr));
+        Toast.makeText(context, Arrays.toString(arr), Toast.LENGTH_LONG).show();
+
     }
 
     private static int partition(int[] arr, int startIndex, int endIndex) {
