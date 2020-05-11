@@ -185,9 +185,10 @@ public class Calculate {
      * @param arr
      */
     static int hashLength = 7;
-    static int[] hashTable = new int[hashLength];
+    static int[] hashTable;
 
     public static void hashSearch(int[] arr, int searchData) {
+        hashTable = new int[hashLength];
         //创建哈希表
         for (int i = 0; i < arr.length; i++) {
             insert(hashTable, arr[i]);
