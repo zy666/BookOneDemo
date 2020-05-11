@@ -117,14 +117,56 @@ public class Calculate {
 
     }
 
+
     /**
-     * 折半查找
+     * 折半查找-递归实现
      *
-     * @param arr
+     * @param arr  数组
+     * @param key  查找位置
+     * @param low  最小索引
+     * @param high 最大索引
      */
-    public static void halfSearch(int[] arr, Context context) {
-        Log.e("插入排序：", Arrays.toString(arr));
-        Toast.makeText(context, Arrays.toString(arr), Toast.LENGTH_LONG).show();
+    public static void halfSearch(int[] arr, int key, int low, int high) {
+        if (key < arr[low] || key > arr[high] || low > high) {
+            Log.e("折半", "查找错误");
+        }
+        int mid = (low + high) / 2;
+        if (key < arr[mid]) {
+            halfSearch(arr, key, low, mid - 1);
+        } else if (key > arr[mid]) {
+            halfSearch(arr, key, mid + 1, high);
+        } else {
+            Log.e("折半", mid + "");
+        }
+    }
+
+    /**
+     * 折半查找——迭代实现
+     *
+     * @param arr 数组
+     * @param key 查找位置
+     */
+    public static void halfSearch(int[] arr, int key) {
+        int low = 0;
+        int high = arr.length - 1;
+        int mid = 0;
+
+        if (key < arr[low] || key > arr[high] || low > high) {
+            Log.e("折半", "查找结束");
+            return;
+        }
+        while (low <= high) {
+            mid = (low + high) / 2;
+            if (key < arr[mid]) {
+                high = mid - 1;
+            } else if (key > arr[mid]) {
+                low = mid + 1;
+            } else {
+                Log.e("折半", mid + "");
+                return;
+            }
+        }
+
     }
 
     /**
@@ -142,9 +184,75 @@ public class Calculate {
      *
      * @param arr
      */
-    public static void hashSearch(int[] arr, Context context) {
-        Log.e("插入排序：", Arrays.toString(arr));
-        Toast.makeText(context, Arrays.toString(arr), Toast.LENGTH_LONG).show();
+    static int hashLength = 7;
+    static int[] hashTable = new int[hashLength];
+
+    public static void hashSearch(int[] arr, int searchData) {
+        //创建哈希表
+        for (int i = 0; i < arr.length; i++) {
+            insert(hashTable, arr[i]);
+        }
+        Log.e("展示哈希表中的数据：", display(hashTable));
+        int result = search(hashTable, searchData);
+        Log.e("哈希查找", result + "");
+    }
+
+    public static void insert(int[] hashTable, int data) {
+        //哈希函数，除留余数法
+        int hashAddress = hash(hashTable, data);
+        Log.e("冲突前的hashAddress：", hashAddress + "");
+
+        while (hashTable[hashAddress] != 0) {
+//            Log.e("hashAddress-while：", hashAddress + "");
+            hashAddress = (++hashAddress) % hashTable.length;
+            Log.e("冲突后的hashAddress：", hashAddress + "");
+        }
+
+        hashTable[hashAddress] = data;
+        Log.e("最终的处理后的：", hashAddress + "");
+        Log.e("hashTable：", Arrays.toString(hashTable));
+
+    }
+
+    /**
+     * 方法：展示哈希表
+     */
+    public static String display(int[] hashTable) {
+        StringBuffer stringBuffer = new StringBuffer();
+        for (int i : hashTable) {
+            stringBuffer = stringBuffer.append(i + " ");
+        }
+        return String.valueOf(stringBuffer);
+    }
+
+    /**
+     * 方法：哈希表查找
+     */
+    public static int search(int[] hashTable, int data) {
+        // 哈希函数，除留余数法
+        int hashAddress = hash(hashTable, data);
+
+        while (hashTable[hashAddress] != data) {
+            // 利用 开放定址法 解决冲突
+            hashAddress = (++hashAddress) % hashTable.length;
+            // 查找到开放单元 或者 循环回到原点，表示查找失败
+            if (hashTable[hashAddress] == 0 || hashAddress == hash(hashTable, data)) {
+                return -1;
+            }
+        }
+        // 查找成功，返回下标
+        return hashAddress;
+    }
+
+    /**
+     * 方法：构建哈希函数（除留余数法）
+     *
+     * @param hashTable
+     * @param data
+     * @return
+     */
+    public static int hash(int[] hashTable, int data) {
+        return data % hashTable.length;
     }
 
     /**

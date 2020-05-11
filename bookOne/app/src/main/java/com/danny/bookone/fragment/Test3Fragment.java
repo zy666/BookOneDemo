@@ -39,7 +39,7 @@ import java.util.List;
 public class Test3Fragment extends BaseFragment {
     private FragmentTest3Binding test3Binding;
     private List<String> calculateList = new ArrayList<>();
-    private int[] maoPaoArray = {4, 7, 6, 5, 3, 2, 8, 1};
+    private int[] maoPaoArray = {1, 16, 13, 28, 29, 11, 10};
 
     public Test3Fragment() {
         // Required empty public constructor
@@ -83,13 +83,14 @@ public class Test3Fragment extends BaseFragment {
                         Calculate.insertSort(maoPaoArray, getActivity());
                         break;
                     case 6:
-                        Calculate.halfSearch(maoPaoArray, getActivity());
+//                        Calculate.halfSearch(maoPaoArray, 14, 0, maoPaoArray.length - 1);
+                        Calculate.halfSearch(maoPaoArray, 14);
                         break;
                     case 7:
                         Calculate.treeSearch(maoPaoArray, getActivity());
                         break;
                     case 8:
-                        Calculate.hashSearch(maoPaoArray, getActivity());
+                        Calculate.hashSearch(maoPaoArray,10);
                         break;
                 }
             }
