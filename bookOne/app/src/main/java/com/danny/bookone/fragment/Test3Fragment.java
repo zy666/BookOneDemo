@@ -31,6 +31,8 @@ import com.danny.bookone.suanfa.Calculate;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -69,9 +71,7 @@ public class Test3Fragment extends BaseFragment {
                         fanZhuan(calculateList.get(position));
                         break;
                     case 1:
-//                        Calculate.maoPao(maoPaoArray, position, getActivity());
-                        Calculate.maoPaoYouhua(maoPaoArray, position, getActivity());
-//                        Calculate.finalMaoPao(maoPaoArray, position, getActivity());
+                        Calculate.finalMaoPao(maoPaoArray, position, getActivity());
                         break;
                     case 2:
                         Calculate.selectSort(maoPaoArray, getActivity());
@@ -90,7 +90,7 @@ public class Test3Fragment extends BaseFragment {
                         Calculate.treeSearch(maoPaoArray, getActivity());
                         break;
                     case 8:
-                        Calculate.hashSearch(maoPaoArray,10);
+                        Calculate.hashSearch(maoPaoArray, 10);
                         break;
                 }
             }

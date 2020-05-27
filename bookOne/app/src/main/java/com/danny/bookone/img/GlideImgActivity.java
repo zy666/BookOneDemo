@@ -48,7 +48,15 @@ public class GlideImgActivity extends AppCompatActivity {
         img.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT));
         glideImgBinding.imgList.addView(img);
-        Glide.with(this).load(imgUrl).into(img);
+        RequestOptions requestOptions = new RequestOptions();
+        requestOptions.placeholder(R.mipmap.ic_launcher);           //加载占位符
+        requestOptions.error(R.mipmap.ic_launcher);                 //异常占位符
+        requestOptions.diskCacheStrategy(DiskCacheStrategy.NONE);   //禁用缓存，方便占位符展示
+        requestOptions.override(100,100);                           //加载指定图片大小
+        Glide.with(this)
+                .load(imgUrl)
+                .apply(requestOptions)
+                .into(img);
 //        NeGlide.with(this)
 //                .load(imgUrl)
 //                .listener(new RequestListener() {

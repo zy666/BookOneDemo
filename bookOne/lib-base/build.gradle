@@ -1,41 +1,55 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
+
     defaultConfig {
-        applicationId rootProject.ext.android.applicationId
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode 1
         versionName "1.0"
-        vectorDrawables.useSupportLibrary = true
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    dataBinding {
-        enabled = true
-    }
+
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     implementation rootProject.ext.support.appcompat
     implementation rootProject.ext.support.material
     implementation rootProject.ext.support.recyclerview
     implementation rootProject.ext.support.constraintlayout
 
-    api project(path: ':lib-base')
-    implementation project(path: ':lib-common')
+    //rxjava
+    api rootProject.ext.dependencies.rxjava
+    api rootProject.ext.dependencies.rxandroid
+
+    api rootProject.ext.dependencies.kotlinJdk
+    api rootProject.ext.dependencies.legacy
+
+    api rootProject.ext.dependencies.eventbus
+    api rootProject.ext.dependencies.baseAdapter
+
+    api rootProject.ext.dependencies.glide
+    annotationProcessor rootProject.ext.dependencies.glideCompiler
+
+    api rootProject.ext.dependencies.okhttp
+    api rootProject.ext.dependencies.retrofit
+    api rootProject.ext.dependencies.retrofitConverterGson
+    api rootProject.ext.dependencies.retrofitAdapterRxjava
+    api rootProject.ext.dependencies.gson
 
 }

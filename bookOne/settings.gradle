@@ -1,2 +1,3 @@
 include ':app'
-include ':amm_sdk_sample'
+include ':lib-base'
+include ':lib-common'

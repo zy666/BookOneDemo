@@ -1,34 +1,21 @@
 package com.danny.bookone;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.viewpager.widget.ViewPager;
 
-import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.danny.bookone.Base.StringAdapter;
-import com.danny.bookone.aac.AacActivity;
 import com.danny.bookone.databinding.ActivityMainBinding;
 import com.danny.bookone.fragment.MainPageViewPager;
 import com.danny.bookone.fragment.Test2Fragment;
 import com.danny.bookone.fragment.Test3Fragment;
 import com.danny.bookone.fragment.TestFragment;
 import com.danny.bookone.fragment.ThirdFrameFragment;
-import com.danny.bookone.highLight.HighLightActivity;
-import com.danny.bookone.img.GlideImgActivity;
-import com.danny.bookone.one.HandlerActivity;
-import com.danny.bookone.one.HeroActivity;
-import com.danny.bookone.other.CompanyActivity;
-import com.danny.bookone.other.DataActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
@@ -45,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
         List<Fragment> fragments = new ArrayList<>();
         List<String> stringList = new ArrayList<>();
+
         stringList.add("one");
         stringList.add("two");
         stringList.add("three");

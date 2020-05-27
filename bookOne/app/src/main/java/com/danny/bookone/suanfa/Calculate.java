@@ -4,35 +4,43 @@ import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Calculate {
 
     public static void maoPao(int[] maoPaoArray, int position, Context context) {
         //5,9,2,8,7,6,4
+        long mills = System.currentTimeMillis();
         for (int i = 0; i < maoPaoArray.length - 1; i++) {
             int temp;
-            Log.e("冒泡", "第" + (i + 1) + "遍======开始======");
+//            Log.e("冒泡", "第" + (i + 1) + "遍======开始======");
             for (int j = 0; j < maoPaoArray.length - 1 - i; j++) {
                 if (maoPaoArray[j] > maoPaoArray[j + 1]) {
                     temp = maoPaoArray[j];
                     maoPaoArray[j] = maoPaoArray[j + 1];
                     maoPaoArray[j + 1] = temp;
                 }
-                Log.e("冒泡", "第" + (i + 1) + "遍" + "第" + (j + 1) + "次循环" + Arrays.toString(maoPaoArray));
+//                Log.e("冒泡", "第" + (i + 1) + "遍" + "第" + (j + 1) + "次循环" + Arrays.toString(maoPaoArray));
             }
-            Log.e("冒泡", "第" + (i + 1) + "遍======结束======" + "结果：" + Arrays.toString(maoPaoArray));
+//            Log.e("冒泡", "第" + (i + 1) + "遍======结束======" + "结果：" + Arrays.toString(maoPaoArray));
         }
+        long millsend = System.currentTimeMillis();
+        Log.e("冒泡计算时间", String.valueOf(millsend - mills));
         Toast.makeText(context, Arrays.toString(maoPaoArray), Toast.LENGTH_LONG).show();
+
     }
 
     public static void maoPaoYouhua(int[] maoPaoArray, int position, Context context) {
         //5,9,2,8,7,6,4
         int temp;
         boolean flag;//是否交换的标志
+        long mills = System.currentTimeMillis();
         for (int i = 0; i < maoPaoArray.length - 1; i++) {
             flag = false;
-            Log.e("冒泡", "第" + (i + 1) + "遍======开始======");
             for (int j = 0; j < maoPaoArray.length - 1 - i; j++) {
                 if (maoPaoArray[j] > maoPaoArray[j + 1]) {
                     temp = maoPaoArray[j];
@@ -40,55 +48,62 @@ public class Calculate {
                     maoPaoArray[j + 1] = temp;
                     flag = true;
                 }
-                Log.e("冒泡", "第" + (i + 1) + "遍" + "第" + (j + 1) + "次循环" + Arrays.toString(maoPaoArray));
             }
-            Log.e("冒泡", "第" + (i + 1) + "遍======结束======" + "结果：" + Arrays.toString(maoPaoArray));
-            if (!flag) break;
+            if (!flag) {
+                break;
+            }
         }
-        Toast.makeText(context, Arrays.toString(maoPaoArray), Toast.LENGTH_LONG).show();
+        long millsend = System.currentTimeMillis();
+        Log.e("冒泡计算时间", String.valueOf(millsend - mills));
+        Log.e("冒泡", "结果：" + Arrays.toString(maoPaoArray));
+
 
     }
 
     public static void finalMaoPao(int[] maoPaoArray, int position, Context context) {
-        int temp = 0;
-        int tempPosition = 0;
+        int tempPos = 0;
         int len = maoPaoArray.length - 1;
         boolean flag;
         for (int i = 0; i < maoPaoArray.length - 1; i++) {
             flag = false;
-            Log.e("冒泡", "第" + (i + 1) + "遍======开始======");
             for (int j = 0; j < len; j++) {
                 if (maoPaoArray[j] > maoPaoArray[j + 1]) {
-                    temp = maoPaoArray[j];
+                    int temp = maoPaoArray[j];
                     maoPaoArray[j] = maoPaoArray[j + 1];
                     maoPaoArray[j + 1] = temp;
                     flag = true;
-                    tempPosition = j;
+                    tempPos = j;
                 }
-                Log.e("冒泡", "第" + (i + 1) + "遍" + "第" + (j + 1) + "次循环" + Arrays.toString(maoPaoArray));
             }
-            len = tempPosition;
-            Log.e("冒泡", "第" + (i + 1) + "遍======结束======" + "结果：" + Arrays.toString(maoPaoArray));
-            if (!flag) break;
+
+            len = tempPos;
+            if (!flag) {
+                break;
+            }
         }
+        Log.e("冒泡排序", Arrays.toString(maoPaoArray));
         Toast.makeText(context, Arrays.toString(maoPaoArray), Toast.LENGTH_LONG).show();
 
 
     }
 
     public static void selectSort(int[] arr, Context context) {
-        for (int i = 0; i < arr.length; i++) {
-            int pos = i;
-            for (int j = i + 1; j < arr.length; j++) {
-                if (arr[j] < arr[pos]) {
-                    pos = j;
+        for (int i = 0; i < arr.length - 1; i++) {
+            int index = i;
+            int j;
+            for (j = i + 1; j < arr.length; j++) {
+                if (arr[j] < arr[index]) {
+                    index = j;
                 }
             }
-            int temp = arr[i];
-            arr[i] = arr[pos];
-            arr[pos] = temp;
-            Log.e("选择排序", Arrays.toString(arr));
+            if (index != i) {
+                int temp = arr[index];
+                arr[index] = arr[i];
+                arr[i] = temp;
+            }
         }
+
+        Log.e("选择排序", Arrays.toString(arr));
         Toast.makeText(context, Arrays.toString(arr), Toast.LENGTH_LONG).show();
 
     }
@@ -99,6 +114,19 @@ public class Calculate {
      * @param arr
      */
     public static void insertSort(int[] arr, Context context) {
+//        for (int i = 1; i < arr.length; i++) {
+//            int temp = arr[i];
+//            int j;
+//            for (j = i - 1; j >= 0; j--) {
+//                if (arr[j] > temp) {
+//                    arr[j + 1] = arr[j];
+//                } else {
+//                    break;
+//                }
+//            }
+//            arr[j + 1] = temp;
+//        }
+
         for (int i = 1; i < arr.length; i++) {
             int temp = arr[i];
             int j;
@@ -109,14 +137,12 @@ public class Calculate {
                     break;
                 }
             }
-            //开始插入操作
             arr[j + 1] = temp;
         }
-        Log.e("插入排序：", Arrays.toString(arr));
+
+        Log.e("插入排序", Arrays.toString(arr));
         Toast.makeText(context, Arrays.toString(arr), Toast.LENGTH_LONG).show();
-
     }
-
 
     /**
      * 折半查找-递归实现
