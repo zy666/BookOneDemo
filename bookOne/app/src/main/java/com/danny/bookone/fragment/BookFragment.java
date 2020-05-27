@@ -88,8 +88,8 @@ public class BookFragment extends BaseFragment {
 //        bookBinding.rcvChapter.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL));
 //        bookBinding.rcvChapter.setAdapter(adapter);
         mFragments = new ArrayList<>();
-        mFragments.add(new HeroFragment());
-        mFragments.add(new HeroFragment());
+        mFragments.add(HeroFragment.newInstance());
+        mFragments.add(HighLightFragment.newInstance());
         bookBinding.tabLayout.setViewPager(bookBinding.bookViewPager, new String[]{"Android群英传", "Android进阶之光"}, getActivity(), mFragments);
 
     }
