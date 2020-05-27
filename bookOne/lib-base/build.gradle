@@ -52,4 +52,6 @@ dependencies {
     api rootProject.ext.dependencies.retrofitAdapterRxjava
     api rootProject.ext.dependencies.gson
 
+    api rootProject.ext.dependencies.tablayout
+
 }
