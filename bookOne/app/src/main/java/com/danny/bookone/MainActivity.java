@@ -14,7 +14,7 @@ import com.danny.bookone.databinding.ActivityMainBinding;
 import com.danny.bookone.fragment.MainPageViewPager;
 import com.danny.bookone.fragment.Test2Fragment;
 import com.danny.bookone.fragment.Test3Fragment;
-import com.danny.bookone.fragment.TestFragment;
+import com.danny.bookone.fragment.BookFragment;
 import com.danny.bookone.fragment.ThirdFrameFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         stringList.add("three");
         stringList.add("four");
 
-        fragments.add(TestFragment.newInstance());
+        fragments.add(BookFragment.newInstance());
         fragments.add(Test2Fragment.newInstance());
         fragments.add(Test3Fragment.newInstance());
         fragments.add(ThirdFrameFragment.newInstance());

@@ -5,7 +5,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -16,10 +15,9 @@ import android.view.ViewGroup;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.danny.bookone.Base.StringAdapter;
-import com.danny.bookone.MainActivity;
 import com.danny.bookone.R;
 import com.danny.bookone.aac.AacActivity;
-import com.danny.bookone.databinding.FragmentTestBinding;
+import com.danny.bookone.databinding.FragmentBookBinding;
 import com.danny.bookone.highLight.HighLightActivity;
 import com.danny.bookone.img.GlideImgActivity;
 import com.danny.bookone.one.HandlerActivity;
@@ -30,23 +28,23 @@ import com.danny.bookone.other.DataActivity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TestFragment extends BaseFragment {
+public class BookFragment extends BaseFragment {
     private List<String> arraylist = new ArrayList<>();
-    private FragmentTestBinding testBinding;
+    private FragmentBookBinding testBinding;
 
-    public TestFragment() {
+    public BookFragment() {
         // Required empty public constructor
     }
 
-    public static TestFragment newInstance() {
-        TestFragment fragment = new TestFragment();
+    public static BookFragment newInstance() {
+        BookFragment fragment = new BookFragment();
         return fragment;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        testBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_test, container, false);
+        testBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_book, container, false);
         return testBinding.getRoot();
     }
 
