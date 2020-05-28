@@ -1,5 +1,6 @@
 package com.danny.bookone.fragment;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
@@ -16,6 +17,12 @@ public class MainPageViewPager extends FragmentPagerAdapter {
         this.fragments = fragments;
     }
 
+    public MainPageViewPager(FragmentManager fm, List<Fragment> fragments, List<String> title) {
+        super(fm);
+        this.fragments = fragments;
+        this.title = title;
+    }
+
     @Override
     public Fragment getItem(int position) {
         return fragments.get(position);
@@ -28,5 +35,11 @@ public class MainPageViewPager extends FragmentPagerAdapter {
 
     public void setTitle(List<String> title) {
         this.title = title;
+    }
+
+    @Nullable
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return this.title.get(position);
     }
 }

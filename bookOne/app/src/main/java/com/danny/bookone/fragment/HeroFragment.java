@@ -32,8 +32,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HeroFragment extends BaseFragment {
-    private List<String> arraylist = new ArrayList<>();
     private FragmentHeroBinding heroBinding;
+    private StringAdapter adapter;
 
     public HeroFragment() {
         // Required empty public constructor
@@ -54,7 +54,22 @@ public class HeroFragment extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        StringAdapter adapter = new StringAdapter(arraylist);
+        Log.e("HeroFragment-->", "onViewCreated");
+        List<String> arraylist = new ArrayList<>();
+        arraylist.add("第一章-体系与系统架构");
+        arraylist.add("第二章-开发工具");
+        arraylist.add("第三章-架构控件与自定义控件详解");
+        arraylist.add("第四章");
+        arraylist.add("第五章");
+        arraylist.add("第六章");
+        arraylist.add("第七章-Android动画机制与使用技巧");
+        arraylist.add("第八章");
+        arraylist.add("第九章");
+        arraylist.add("第十章");
+        arraylist.add("第十一章");
+        arraylist.add("第十二章");
+        arraylist.add("第十三章");
+        adapter = new StringAdapter(arraylist);
         adapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
             @Override
             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
@@ -83,22 +98,12 @@ public class HeroFragment extends BaseFragment {
     @Override
     protected void onLazyData() {
         initData();
-        Log.e("Test-->", "onLazyData");
+        Log.e("HeroFragment-->", "onLazyData");
     }
 
     private void initData() {
-        arraylist.add("第一章-体系与系统架构");
-        arraylist.add("第二章-开发工具");
-        arraylist.add("第三章-架构控件与自定义控件详解");
-        arraylist.add("第四章");
-        arraylist.add("第五章");
-        arraylist.add("第六章");
-        arraylist.add("第七章-Android动画机制与使用技巧");
-        arraylist.add("第八章");
-        arraylist.add("第九章");
-        arraylist.add("第十章");
-        arraylist.add("第十一章");
-        arraylist.add("第十二章");
-        arraylist.add("第十三章");
+        Log.e("HeroFragment-->", "initData");
+
+
     }
 }

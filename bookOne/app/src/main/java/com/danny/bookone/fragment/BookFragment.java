@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.viewpager.widget.ViewPager;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -25,6 +26,7 @@ import com.danny.bookone.one.HandlerActivity;
 import com.danny.bookone.one.HeroActivity;
 import com.danny.bookone.other.CompanyActivity;
 import com.danny.bookone.other.DataActivity;
+import com.flyco.tablayout.listener.OnTabSelectListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,9 +35,9 @@ public class BookFragment extends BaseFragment {
     private List<String> arraylist = new ArrayList<>();
     private FragmentBookBinding bookBinding;
     private ArrayList<Fragment> mFragments;
+    private ArrayList<String> mTitles = new ArrayList<>();
 
     public BookFragment() {
-        // Required empty public constructor
     }
 
     public static BookFragment newInstance() {
@@ -53,6 +55,8 @@ public class BookFragment extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        Log.e("BookFragment-->", "onViewCreated");
+
 //        StringAdapter adapter = new StringAdapter(arraylist);
 //        adapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
 //            @Override
@@ -87,26 +91,57 @@ public class BookFragment extends BaseFragment {
 //        bookBinding.rcvChapter.setLayoutManager(new LinearLayoutManager(getActivity()));
 //        bookBinding.rcvChapter.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL));
 //        bookBinding.rcvChapter.setAdapter(adapter);
-        mFragments = new ArrayList<>();
-        mFragments.add(HeroFragment.newInstance());
-        mFragments.add(HighLightFragment.newInstance());
-        bookBinding.tabLayout.setViewPager(bookBinding.bookViewPager, new String[]{"Android群英传", "Android进阶之光"}, getActivity(), mFragments);
+        bookBinding.bookViewPager.setAdapter(new MainPageViewPager(getChildFragmentManager(), mFragments, mTitles));
+        bookBinding.bookViewPager.setOffscreenPageLimit(2);
+        bookBinding.tabLayout.setViewPager(bookBinding.bookViewPager);
+        bookBinding.bookViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                bookBinding.tabLayout.setCurrentTab(position);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+            }
+        });
+        bookBinding.tabLayout.setOnTabSelectListener(new OnTabSelectListener() {
+            @Override
+            public void onTabSelect(int position) {
+                bookBinding.bookViewPager.setCurrentItem(position);
+            }
+
+            @Override
+            public void onTabReselect(int position) {
+
+            }
+        });
     }
 
     @Override
     protected void onLazyData() {
         initData();
-        Log.e("Test-->", "onLazyData");
+        Log.e("BookFragment-->", "onLazyData");
     }
 
     private void initData() {
-        arraylist.add("Android群英传");
-        arraylist.add("Android进阶之光");
-        arraylist.add("AAC系列");
-        arraylist.add("handler原理解析");
-        arraylist.add("java数据结构");
-        arraylist.add("Android四大组件");
-        arraylist.add("glide图片加载框架设计");
+        Log.e("BookFragment-->", "initData");
+        mFragments = new ArrayList<>();
+        mFragments.add(new HeroFragment());
+        mFragments.add(new HighLightFragment());
+        mTitles.add("Android群英传");
+        mTitles.add("Android进阶之光");
+
+//        arraylist.add("Android群英传");
+//        arraylist.add("Android进阶之光");
+//        arraylist.add("AAC系列");
+//        arraylist.add("handler原理解析");
+//        arraylist.add("java数据结构");
+//        arraylist.add("Android四大组件");
+//        arraylist.add("glide图片加载框架设计");
     }
 }

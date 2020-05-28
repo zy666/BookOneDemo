@@ -30,8 +30,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HighLightFragment extends BaseFragment {
-    private List<String> arraylist = new ArrayList<>();
     private FragmentHighLightBinding highLightBinding;
+    StringAdapter adapter;
 
     public HighLightFragment() {
         // Required empty public constructor
@@ -52,8 +52,14 @@ public class HighLightFragment extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-//
-        StringAdapter adapter = new StringAdapter(arraylist);
+        Log.e("HighLightFragment-->", "onViewCreated");
+        List<String> arraylist = new ArrayList<>();
+        arraylist.add("第一章--Android新特性");
+        arraylist.add("第二章");
+        arraylist.add("第三章--view体系与自定义view");
+        arraylist.add("第四章");
+        arraylist.add("第五章--网络编程与网络框架");
+        adapter = new StringAdapter(arraylist);
         adapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
             @Override
             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
@@ -74,20 +80,17 @@ public class HighLightFragment extends BaseFragment {
         highLightBinding.rcvList.setLayoutManager(new LinearLayoutManager(getActivity()));
         highLightBinding.rcvList.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL));
         highLightBinding.rcvList.setAdapter(adapter);
-
     }
 
     @Override
     protected void onLazyData() {
         initData();
-        Log.e("Test-->", "onLazyData");
+        Log.e("HighLightFragment-->", "onLazyData");
     }
 
     private void initData() {
-        arraylist.add("第一章--Android新特性");
-        arraylist.add("第二章");
-        arraylist.add("第三章--view体系与自定义view");
-        arraylist.add("第四章");
-        arraylist.add("第五章--网络编程与网络框架");
+        Log.e("HighLightFragment-->", "initData");
+
+
     }
 }
