@@ -1,4 +1,4 @@
-package com.tyb.lib_base;
+package com.tyb.base;
 
 import org.junit.Test;
 

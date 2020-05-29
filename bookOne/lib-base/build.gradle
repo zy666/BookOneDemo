@@ -20,6 +20,19 @@ android {
         }
     }
 
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
 }
 
 dependencies {
@@ -53,5 +66,11 @@ dependencies {
     api rootProject.ext.dependencies.gson
 
     api rootProject.ext.dependencies.tablayout
+    //lifecycle系列
+    api rootProject.ext.dependencies.lifecycleRuntime
+    api rootProject.ext.dependencies.lifecycleCommonJava8
+    api rootProject.ext.dependencies.lifecycleExtensions
+    api rootProject.ext.dependencies.viewmodel
+    api rootProject.ext.dependencies.livedata
 
 }

@@ -35,6 +35,12 @@ ext {
             "gson"                 : "com.google.code.gson:gson:2.8.5",
             "tablayout"            : "com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar",
 
+            "lifecycleRuntime"     : 'androidx.lifecycle:lifecycle-runtime:2.2.0',
+            "lifecycleCommonJava8" : 'androidx.lifecycle:lifecycle-common-java8:2.2.0',
+            "lifecycleExtensions"  : 'androidx.lifecycle:lifecycle-extensions:2.2.0',
+            "viewmodel"            : 'androidx.lifecycle:lifecycle-viewmodel:2.2.0',
+            "livedata"             : 'androidx.lifecycle:lifecycle-livedata:2.2.0',
+
     ]
 }
 
