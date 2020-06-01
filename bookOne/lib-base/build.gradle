@@ -66,6 +66,7 @@ dependencies {
     api rootProject.ext.dependencies.gson
 
     api rootProject.ext.dependencies.tablayout
+
     //lifecycle系列
     api rootProject.ext.dependencies.lifecycleRuntime
     api rootProject.ext.dependencies.lifecycleCommonJava8
