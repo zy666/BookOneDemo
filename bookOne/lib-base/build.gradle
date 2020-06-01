@@ -49,24 +49,30 @@ dependencies {
     //rxjava
     api rootProject.ext.dependencies.rxjava
     api rootProject.ext.dependencies.rxandroid
+    //rxlifecycle
+    api rootProject.ext.dependencies.rxlifecycle
+    api rootProject.ext.dependencies.rxlifecycleComponents
+    api rootProject.ext.dependencies.rxbinding
+    //6.0权限申请
+    api rootProject.ext.dependencies.rxpermissions
 
     api rootProject.ext.dependencies.kotlinJdk
     api rootProject.ext.dependencies.legacy
-
+    //消息总线
     api rootProject.ext.dependencies.eventbus
+    //通用适配器
     api rootProject.ext.dependencies.baseAdapter
-
+    //图片加载
     api rootProject.ext.dependencies.glide
     annotationProcessor rootProject.ext.dependencies.glideCompiler
-
+    //网络请求
     api rootProject.ext.dependencies.okhttp
     api rootProject.ext.dependencies.retrofit
     api rootProject.ext.dependencies.retrofitConverterGson
     api rootProject.ext.dependencies.retrofitAdapterRxjava
     api rootProject.ext.dependencies.gson
-
+    //FlycoTabLayout_Lib
     api rootProject.ext.dependencies.tablayout
-
     //lifecycle系列
     api rootProject.ext.dependencies.lifecycleRuntime
     api rootProject.ext.dependencies.lifecycleCommonJava8
