@@ -43,6 +43,6 @@ dependencies {
     implementation rootProject.ext.support.constraintlayout
 
     api project(path: ':lib-base')
-    implementation project(path: ':lib-common')
+    implementation project(path: ':lib-data')
 
 }

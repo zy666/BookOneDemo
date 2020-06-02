@@ -47,6 +47,7 @@ dependencies {
     implementation rootProject.ext.support.constraintlayout
 
     api rootProject.ext.dependencies["arouter-api"]
+    api rootProject.ext.dependencies.MultiImageSelector
 
     //rxjava
     api rootProject.ext.dependencies.rxjava
@@ -81,5 +82,7 @@ dependencies {
     api rootProject.ext.dependencies.lifecycleExtensions
     api rootProject.ext.dependencies.viewmodel
     api rootProject.ext.dependencies.livedata
+
+
 
 }
