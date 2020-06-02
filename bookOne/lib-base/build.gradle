@@ -46,6 +46,8 @@ dependencies {
     implementation rootProject.ext.support.recyclerview
     implementation rootProject.ext.support.constraintlayout
 
+    api rootProject.ext.dependencies["arouter-api"]
+
     //rxjava
     api rootProject.ext.dependencies.rxjava
     api rootProject.ext.dependencies.rxandroid
